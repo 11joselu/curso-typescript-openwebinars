@@ -30,7 +30,7 @@ const moviesFull = [
   {
     title: 'Movie 5',
     director: { name: 'Ridley Scott' },
-    actors: [{ name: 'Actor one' }}],
+    actors: [{ name: 'Actor one' }],
   },
 ];
 
