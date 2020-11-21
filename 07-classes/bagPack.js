@@ -18,7 +18,7 @@ class Container {
   }
 
   getCapacity() {
-    throw new Error('Method not implemented.');
+    return 0;
   }
 }
 
