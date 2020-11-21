@@ -1,4 +1,8 @@
-const moviesSmall = [
+type MovieSmall = {
+  title: string;
+};
+
+const moviesSmall: MovieSmall[] = [
   { title: 'Movie 1' },
   { title: 'Movie 2' },
   { title: 'Movie 3' },
@@ -6,7 +10,19 @@ const moviesSmall = [
   { title: 'Movie 5' },
 ];
 
-const moviesFull = [
+type Person = {
+  name: String;
+};
+type Director = Person;
+type Actor = Person;
+
+type MovieFull = {
+  title: string;
+  director: Director;
+  actors: Actor[];
+};
+
+const moviesFull: MovieFull[] = [
   {
     title: 'Movie 1',
     director: { name: 'Ridley Scott' },
@@ -34,61 +50,34 @@ const moviesFull = [
   },
 ];
 
-// Recomendation use :any as a movie type
-function getDirector(movie) {
-  if (movie.director != null) {
-    return movie.director.name;
-  }
-
-  return 'Unknown Director';
+function getDirector(movie: any) {
+  return movie.director?.name ?? 'Unknown Director';
 }
 
-// Recomendation use :any as a movie type
-function getActors(movie) {
-  if (movie.actors != null) {
-    return movie.actors;
-  }
-
-  return 'Unknown actors';
+function getActors(movie: any) {
+  return movie.actors ?? 'Unknown actors';
 }
 
-// Recomendation use :any as a movie type
-function getLeadingActor(movie) {
-  if (movie.actors != null && movie.actors.length >= 0) {
-    if (movie.actors[0] && movie.actors[0].name) {
-      return movie.actors[0].name;
-    }
-  }
-
-  return 'Unknown actor';
+function getLeadingActor(movie: any) {
+  return movie.actors?.[0]?.name ?? 'Unknown actor';
 }
 
-// Recomendation use :any as a movie type
-function getSecondaryActor(movie) {
-  if (movie.actors != null && movie.actors.length >= 0) {
-    if (movie.actors[1] && movie.actors[1].name) {
-      return movie.actors[1].name;
-    }
-  }
-
-  return 'Unknown actor';
+function getSecondaryActor(movie: any) {
+  return movie.actors?.[1]?.name ?? 'Unknown actor';
 }
 
-// Recomendation use :any as a movie type
-function logMovie(movie) {
+function logMovie(movie: any) {
   console.log('Director:', getDirector(movie));
   console.log('Actors:', getActors(movie));
   console.log('Lead actor', getLeadingActor(movie));
   console.log('Second actor', getSecondaryActor(movie));
 }
 
-// Recomendation use :any as a movie type
-function logSmallMovies(movie) {
+function logSmallMovies(movie: any) {
   logMovie(movie);
 }
 
-// Recomendation use :any as a movie type
-function logFullMovies(movie) {
+function logFullMovies(movie: any) {
   logMovie(movie);
 }
 
