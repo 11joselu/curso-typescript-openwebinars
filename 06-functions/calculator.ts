@@ -1,12 +1,12 @@
-const add = (a, b) => {
+const add = (a: number, b: number): number => {
   return a + b;
 };
 
-const subtract = (a, b) => {
+const subtract = (a: number, b: number): number => {
   return a - b;
 };
 
-const divide = (a, b) => {
+const divide = (a: number, b: number): number | never => {
   if (b === 0) {
     throw new Error('Division by zero is undefined');
   }
@@ -14,15 +14,17 @@ const divide = (a, b) => {
   return a / b;
 };
 
-const multiply = (a, b) => {
+const multiply = (a: number, b: number): number => {
   return a * b;
 };
 
-/**
- * Should define Actions[] types
- * defaultValue is optional
- */
-const ACTIONS = [
+type Action = {
+  // modify to define 'ADD'..
+  name: string;
+  do: (a: number, b: number) => number;
+};
+
+const ACTIONS: Action[] = [
   {
     name: 'ADD',
     do: add,
@@ -41,18 +43,26 @@ const ACTIONS = [
   },
 ];
 
-function updateUserMoneyText(element, actualMoney) {
-  element.innerHTML = actualMoney;
+function updateUserMoneyText(element: HTMLSpanElement, actualMoney: number): void {
+  element.innerHTML = actualMoney.toString();
 }
 
-function randomNumber(max) {
+function randomNumber(max: number): number {
   return Math.round(Math.random() * max);
 }
 
-function playTheGame({ actions, totalClick, onError, onSuccess, userMoney }) {
+type PlayTheGameParams = {
+  actions: Action[];
+  totalClick: number;
+  onError: (randomIndex: number, actions: Action[]) => void;
+  onSuccess?: (totalClick: number) => void;
+  userMoney: number;
+};
+
+function playTheGame({ actions, totalClick, onError, onSuccess, userMoney }: PlayTheGameParams): number | never {
   const randomIndex = randomNumber(actions.length);
   const A_MILLION = 1000000;
-  const action = actions[randomIndex];
+  const action: Action | undefined = actions[randomIndex];
 
   if (!action) {
     onError(randomIndex, actions);
@@ -76,7 +86,7 @@ function playTheGame({ actions, totalClick, onError, onSuccess, userMoney }) {
   return newMoney;
 }
 
-function disableClickButton($button, handleClick) {
+function disableClickButton($button: HTMLButtonElement, handleClick: () => void) {
   $button.disabled = true;
 
   if (typeof handleClick === 'function') {
@@ -84,7 +94,7 @@ function disableClickButton($button, handleClick) {
   }
 }
 
-const $button = document.getElementById('button');
+const $button = document.getElementById('button') as HTMLButtonElement;
 const $userMoneyText = document.getElementById('moneyText');
 let userMoney = 1000;
 let totalClick = 0;
@@ -94,10 +104,10 @@ updateUserMoneyText($userMoneyText, userMoney);
 $button.addEventListener('click', function handleClick() {
   totalClick++;
 
-  const params = {
+  const params: PlayTheGameParams = {
     actions: ACTIONS,
     totalClick,
-    userMoney: userMoney,
+    userMoney,
     onError: function (index, actions) {
       console.log(index, actions);
     },
