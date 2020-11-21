@@ -34,6 +34,7 @@ const moviesFull = [
   },
 ];
 
+// Recomendation use :any as a movie type
 function getDirector(movie) {
   if (movie.director != null) {
     return movie.director.name;
@@ -42,6 +43,7 @@ function getDirector(movie) {
   return 'Unknown Director';
 }
 
+// Recomendation use :any as a movie type
 function getActors(movie) {
   if (movie.actors != null) {
     return movie.actors;
@@ -50,6 +52,7 @@ function getActors(movie) {
   return 'Unknown actors';
 }
 
+// Recomendation use :any as a movie type
 function getLeadingActor(movie) {
   if (movie.actors != null && movie.actors.length >= 0) {
     if (movie.actors[0] && movie.actors[0].name) {
@@ -60,6 +63,7 @@ function getLeadingActor(movie) {
   return 'Unknown actor';
 }
 
+// Recomendation use :any as a movie type
 function getSecondaryActor(movie) {
   if (movie.actors != null && movie.actors.length >= 0) {
     if (movie.actors[1] && movie.actors[1].name) {
@@ -70,6 +74,7 @@ function getSecondaryActor(movie) {
   return 'Unknown actor';
 }
 
+// Recomendation use :any as a movie type
 function logMovie(movie) {
   console.log('Director:', getDirector(movie));
   console.log('Actors:', getActors(movie));
@@ -77,10 +82,12 @@ function logMovie(movie) {
   console.log('Second actor', getSecondaryActor(movie));
 }
 
+// Recomendation use :any as a movie type
 function logSmallMovies(movie) {
   logMovie(movie);
 }
 
+// Recomendation use :any as a movie type
 function logFullMovies(movie) {
   logMovie(movie);
 }
