@@ -9,6 +9,7 @@ interface ContainerInterface {
   getCapacity(): number;
 }
 
+// Abstract class, maybe?
 class Container implements ContainerInterface {
   private items: Item[];
   constructor() {
