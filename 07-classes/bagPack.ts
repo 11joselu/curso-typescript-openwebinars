@@ -4,12 +4,18 @@ class MaxBagsReachedException extends Error {
   }
 }
 
-class Container {
+interface ContainerInterface {
+  add(item: Item): never | void;
+  getCapacity(): number;
+}
+
+class Container implements ContainerInterface {
+  private items: Item[];
   constructor() {
     this.items = [];
   }
 
-  add(item) {
+  add(item: Item) {
     if (this.items.length >= this.getCapacity()) {
       throw new MaxBagsReachedException();
     }
@@ -17,7 +23,7 @@ class Container {
     this.items.push(item);
   }
 
-  getCapacity() {
+  getCapacity(): number {
     return 0;
   }
 }
@@ -35,7 +41,10 @@ class Bag extends Container {
 }
 
 class Item {
-  constructor(name, category) {
+  private name: string;
+  private category: string;
+
+  constructor(name: string, category: string) {
     this.name = name;
     this.category = category;
   }
@@ -46,12 +55,15 @@ class Item {
 }
 
 class Player {
-  constructor(bag, bags) {
+  private bag: ContainerInterface;
+  private bags: ContainerInterface[];
+
+  constructor(bag: ContainerInterface, bags: ContainerInterface[]) {
     this.bag = bag;
     this.bags = bags;
   }
 
-  pickItem(item) {
+  pickItem(item: Item) {
     try {
       this.bag.add(item);
       console.log(`${item.toString()} collected ON BAGPACK`);
@@ -62,7 +74,7 @@ class Player {
     }
   }
 
-  storeInNextAvailableBag(item) {
+  storeInNextAvailableBag(item: Item): void {
     for (let index = 0; index < this.bags.length; index++) {
       const bag = this.bags[index];
       try {
