@@ -70,7 +70,7 @@ class Player {
         console.log(`${item.toString()} collected ON A BAG`);
         break;
       } catch (error) {
-        if (index === this.bag.length - 1) {
+        if (index === this.bags.length - 1) {
           throw error;
         }
       }
@@ -91,6 +91,7 @@ $button.addEventListener('click', function () {
   try {
     player.pickItem(item);
   } catch (e) {
+    console.log(e);
     $error.innerHTML = e.toString();
     $error.style.display = 'block';
   }
