@@ -20,7 +20,6 @@ const multiply = (a, b) => {
 
 /**
  * Should define Actions[] types
- * defaultValue is optional
  */
 const ACTIONS = [
   {
@@ -41,6 +40,7 @@ const ACTIONS = [
   },
 ];
 
+// Element is type HTMLElement
 function updateUserMoneyText(element, actualMoney) {
   element.innerHTML = actualMoney;
 }

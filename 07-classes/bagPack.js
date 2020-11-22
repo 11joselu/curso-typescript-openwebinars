@@ -80,6 +80,7 @@ class Player {
 
 const $button = document.getElementById('saveItem');
 const $error = document.getElementById('error');
+// We can create another type of BackPack with more capacity and inject into Player object
 const player = new Player(new BackPack(), [new Bag(), new Bag(), new Bag(), new Bag()]);
 const ITEMS_CATEGORIES = ['clothes', 'weapons', 'herbs'];
 

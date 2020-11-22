@@ -67,7 +67,6 @@ class Manager {
 
 const manager = new Manager();
 manager.addItem(1);
-manager.addItem('hi');
 console.group('Manager class type validation');
 console.log('All items has same type', manager.hasSameType());
 console.groupEnd();
