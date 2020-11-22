@@ -16,7 +16,7 @@ const editor = {
   role: [3, 'Editor'],
 };
 
-const POST = [
+const POSTS = [
   {
     id: 1,
     title: 'Aprender TypeScript',
@@ -69,8 +69,8 @@ function notHasPermissionLog({ name, role }, { title }) {
   console.log(`User ${name} with the role ${role[1]} has no permission to edit the post ${title}`);
 }
 
-for (let index = 0; index < POST.length; index++) {
-  const post = POST[index];
+for (let index = 0; index < POSTS.length; index++) {
+  const post = POSTS[index];
   if (isAdmin(post.author)) {
     if (!(post.id in postLog)) {
       postLog[post.id] = {};
