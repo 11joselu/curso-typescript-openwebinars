@@ -10,7 +10,7 @@ Tenemos una aplicación donde el usuario hará click en un botón y de manera al
 
    > totalClick: número de clicks que ha realizado
 
-   > onError: una función cuyo parámetros el random indice generado (para leer la posición de una action) y el listado de acciones y no devuelve nada
+   > onError: una función cuyo parámetros el random índice generado (para leer la posición de una action) y el listado de acciones y no devuelve nada
 
    > onSuccess: una función OPCIONAL que recibe como parámetro el número total de clicks
 

@@ -6,7 +6,7 @@ Acceder y loguear los atributos de una película. Si no tiene los valores, estab
 
 1. Tipar moviesSmall y moviesFull
 2. Definir los tipos Director y Actor
-3. Simplificar las funciones `getDirector`, `getActors`, `getLeadingActor`, `getSecondaryActor` utilizando nullable o optional chainning.
+3. Simplificar las funciones `getDirector`, `getActors`, `getLeadingActor`, `getSecondaryActor` utilizando nullable o optional chaining.
 
 ## Nota.
 
