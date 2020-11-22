@@ -32,7 +32,6 @@ console.log(
 console.groupEnd();
 
 // Display Tupe value
-// Not you can delete any params
 function displayTupeType([index, value], indexAsType, valueAsType) {
   console.group('Tuple type validation');
   console.log('index is', typeof index, 'and match with his type: ', typeof index === indexAsType);
