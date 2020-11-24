@@ -77,7 +77,10 @@ for (let index = 0; index < POSTS.length; index++) {
       postLog[post.id].oldPost = post;
       postLog[post.id].edittedBy = admin;
       postLog[post.id].edittedAt = Date.now();
-      postLog[post.id].newPost = Object.assign({}, post, { title: '¿Es realmente TypeScript útil?', author: admin });
+      const copyPost = JSON.parse(JSON.stringify(post));
+      copyPost.title = '¿Es realmente TypeScript útil?';
+      copyPost.author = admin;
+      postLog[post.id].newPost = copyPost;
     }
   } else {
     notHasPermissionLog(post.author, post);
