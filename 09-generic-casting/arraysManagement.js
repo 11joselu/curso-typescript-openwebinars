@@ -39,7 +39,7 @@ function displayTupeType([index, value], indexAsType, valueAsType) {
   console.groupEnd();
 }
 
-displayTupeType([1, 'Hi'], 'number', 'number'); // number, string
+displayTupeType([1, 'Hi'], 'number', 'string'); // number, string
 
 class Manager {
   constructor() {
