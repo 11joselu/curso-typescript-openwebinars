@@ -1,6 +1,7 @@
 class MaxBagsReachedException extends Error {
   constructor() {
     super('Max bags reached');
+    (<any>Object).setPrototypeOf(this, MaxBagsReachedException.prototype);
   }
 }
 
