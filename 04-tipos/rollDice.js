@@ -19,7 +19,7 @@ function rollTheDice(userName, maxOfTries) {
   }
 
   if (typeof userName !== 'string') {
-    throw new Error('Username should be a string, not a: ', typeof userName);
+    throw new Error('Username should be a string, not a: ' + typeof userName);
   }
 
   MAX_DICE_NUMBER = 6;
